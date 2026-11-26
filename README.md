@@ -34,12 +34,16 @@ Installation en mode Minimal via Anaconda, choix du disque 20 Go, création du m
 ### 3. Configuration post-install
 hostnamectl set-hostname rocky-srv
 systemctl enable --now sshd
+
 firewall-cmd --add-service=ssh --permanent
+
 firewall-cmd --reload
 
 ### 4. Vérification
 hostnamectl
+
 ip a
+
 cat /etc/os-release
 
 Résultat :
@@ -49,10 +53,14 @@ Résultat :
 
 ### 5. Création des utilisateurs
 useradd -m natasha
+
 useradd -m saara
+
 echo "redhat" | passwd --stdin natasha
 echo "redhat" | passwd --stdin saara
+
 id natasha
+
 id saara
 
 Résultat :
@@ -61,11 +69,14 @@ Résultat :
 
 ### 6. Test SSH depuis Kali
 ssh natasha@192.168.122.17
+
 whoami
+
 hostname
+
 pwd
 
-Résultat : connexion réussie -> [natasha@rocky-srv ~]$, dossier /home/natasha
+Résultat:connexion réussie -> [natasha@rocky-srv ~]$, dossier /home/natasha
 
 ## Preuves / Captures
 - 01-commande-virt-install.png : Création de la VM
@@ -85,5 +96,5 @@ Résultat : connexion réussie -> [natasha@rocky-srv ~]$, dossier /home/natasha
 - Documentation technique par captures
 
 ## Auteur
-Labo réalisé par operator00 - Novembre 2026
+Labo réalisé par Thomas G Yerbanga - Novembre 2026
 
